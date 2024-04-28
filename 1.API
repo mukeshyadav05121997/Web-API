@@ -1,0 +1,44 @@
+API:
+web API is an application programming interface for a web application or web server.
+It uses HTTP protocol to communicate between clients and websites to have data access. Asp.net Core web API is a cross-platform web API.
+
+HTTP WORK?
+Request----Verb,Header,content
+Response---Status code,header,content
+
+Request:
+HTTP Verb/Action:
+1.Get
+2.Post
+3.Put
+4.Delete
+5.Patch
+
+Header/Request Metadata:
+Content Type:
+Content Length
+Authorization
+Accept
+
+Content:HTML,XML,Json
+
+Response:
+Status code:
+100-199=Informational
+200-300=success
+  200-ok
+  201-Created
+  204-No Content
+300-400=Redirection
+400-499=ClientError
+ 400=Bad Request
+ 404=Not found
+ 409=Conflict
+500=Internal Server Error
+
+Header/Request Metadata:
+Content Type
+Content Length
+Expires
+
+
