@@ -14,6 +14,11 @@ HTTP Verb/Action:
 4.Delete
 5.Patch
 
+Put vs Patch
+Put will update the complete object
+Patch will update the one parameter in object
+
+
 Header/Request Metadata:
 Content Type:
 Content Length
