@@ -1,0 +1,13 @@
+Create controller:
+
+ [HttpGet]-verb
+ [ProducesResponseType(StatusCodes.Status200OK)]-- type
+ public ActionResult<IEnumerable<VillaDTO>> getVillas()
+ {
+     return Ok(VillaStore.villastore);
+ }
+
+ Note:t enables returning a type deriving from ActionResult or return a specific type
+
+ActionResult:we have to defined the return. 
+Iactionresult: if we dont know the return type.
