@@ -9,7 +9,11 @@ It uses low bandwidth such as XML or JSON data, etc., and is therefore considere
 From a business point of view, web API is more applicable for UI/UX, increases interest in the company’s product and services, increases website traffic.
 
 2.Explain media type formatters.
-In web API, media type formatters are classes that are responsible for serialization data. Here, serialization generally means a process of translating data into a format that can be transmitted and reconstructed later.  Because of serializing request/response data, Web API can understand request data format in a better way and send data in a format that the client expects. It simply specifies data that is being transferred among client and server in HTTP response or request. 
+In web API, media type formatters are classes that are responsible for serialization data. Here, serialization 
+generally means a process of translating data into a format that can be transmitted and reconstructed later.  
+Because of serializing request/response data, Web API can understand request data format in a better way and 
+send data in a format that the client expects. It simply specifies data that is being transferred among client 
+and server in HTTP response or request. 
 
 Media Type Formatter 
 JsonMediaTypeFormatter	
