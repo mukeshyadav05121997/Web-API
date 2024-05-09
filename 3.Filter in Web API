@@ -1,0 +1,92 @@
+* Web API includes filters to add extra logic before or after action method executes. 
+* Filters can be used to provide cross-cutting features such as logging, exception handling, performance measurement, 
+authentication and authorization.
+
+1.Action Filter: 
+  1. This will be globally and its will be executed on every request:
+
+    public class ActionFilter : IActionFilter
+    {
+        public void OnActionExecuted(ActionExecutedContext context)
+        {
+            Console.WriteLine("Executed");
+        }
+
+        public void OnActionExecuting(ActionExecutingContext context)
+        {
+            Console.WriteLine("Executing ");
+        }
+    }
+    
+Injecting in Services:
+builder.Services.AddControllers(options =>
+options.Filters.Add<ActionFilter>()
+);
+ 2.Attribute:
+     public class ActionFilterAttributes : Attribute,IActionFilter
+    {
+        private readonly string _name;
+
+        public ActionFilterAttributes( string name)
+        { 
+            _name = name;
+        }
+        public void OnActionExecuted(ActionExecutedContext context)
+        {
+            Console.WriteLine("Executed {0}",_name);
+        }
+
+        public void OnActionExecuting(ActionExecutingContext context)
+        {
+            Console.WriteLine("Executing {0}",_name);
+        }
+    }
+
+    Call in Controller:
+     [Route("api/Villa")]
+ [ApiController]
+ [ActionFilterAttributes("Controller")]
+ public class VillaController: ControllerBase
+ {
+     [HttpGet]
+     [ProducesResponseType(StatusCodes.Status200OK)]
+     public ActionResult<IEnumerable<VillaDTO>> getVillas()
+     {
+         return Ok(VillaStore.villastore);
+     }
+  }
+
+
+2.Authentication Filter:-
+   public class AuthorizeFilter : Attribute, IAuthorizationFilter
+   {
+       public void OnAuthorization(AuthorizationFilterContext context)
+       {
+           Console.WriteLine("Authorization is required ");
+       }
+   }
+
+   we can perform filter on Controller as well method level
+  [Route("api/Villa")]
+  [ApiController]
+  public class VillaController: ControllerBase
+  {
+      [HttpGet]
+      [AuthorizeFilter]
+      [ProducesResponseType(StatusCodes.Status200OK)]
+      public ActionResult<IEnumerable<VillaDTO>> getVillas()
+      {
+          return Ok(VillaStore.villastore);
+      }
+3.Authorization Filter:-
+4.Exception Filter:-
+    public class Exceptionfilterin : ExceptionFilterAttribute
+    {
+        public  void NotImplemented() 
+        {
+            Console.WriteLine("Not Implemented Method");
+        }
+    }
+
+    
+5.Over ride Filter:-
