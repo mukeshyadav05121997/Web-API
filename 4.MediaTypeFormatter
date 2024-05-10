@@ -1,0 +1,10 @@
+MediaTypeFormatter is an Abstract class from which JsonMediaTypeFormatter and XMLmedia Type formatter class inherit.
+1.JsonMediaTypeFormatter
+2.XMLMediaTypeFormatter
+3.FormurlEncodedMediaTyeformatter
+4.JqueryMVCFormMediaType formatter
+
+builder.Services.AddControllers(options =>
+{
+    options.RespectBrowserAcceptHeader = true;
+}).AddXmlSerializerFormatters();
